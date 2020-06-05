@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-br">
+	<title>Notícias Cidade - Entrevistas</title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+</head>
+<body id="entrevistas">
+	<div id="container">
+		<img src="images/assets/logo.png">
+		<ul>
+			<li class="home"> <a href="/">Home</a> </li>
+			<li class="brasil"> <a href="/brasil">Brasil</a> </li>
+			<li class="internacional"> <a href="/internacional">Internacional</a></li>
+			<% const ctgs = ["politica", "economia", "saude"]; %>
+			<li class="politica">
+				<a href="/politica?ctg=<%= ctgs[0]%>">Política</a></li>
+			<li class="economia">
+				<a href="/economia?ctg=<%= ctgs[1]%>">Economia</a></li>
+			<li class="saude"> <a href="/saude?ctg=<%= ctgs[2]%>">Saúde</a> </li>
+			<li class="entrevistas"> <a href="/entrevistas">Entrevistas</a> </li>
+		</ul>
+		<div class="clear"></div>
+	</div>
+
+	<div id="principal"> <!-- início principal -->
+		<div id="coluna-esq"> <!-- início coluna da esquerda -->
+			<div class="caixa">
+				<h2>News</h2>
+				<div class="conteudo-esq">
+					<form>
+						<label for="email">Email:</label>
+						<input type="text" name="email" id="email" placeholder="email">
+						<input type="submit" value="Cadastrar">
+					</form>
+				</div>
+			</div>
+		</div>  <!-- fim coluna da esquerda -->
+
+		<div class="coluna-principal"> <!-- início coluna do meio -->
+			<div class="caixa">
+				<h2>Última entrevista</h2>
+				<div class="conteudo-principal">
+					<h3><%= noticias[0].title %></h3>
+					<img src="<%= noticias[0].cover_path %>">
+					<p>
+						<%= noticias[0].resume %>
+					</p>
+					<a href="noticia?id=<%= noticias[0].id %>">Leia mais!</a>
+				</div>
+			</div>
+
+			<div class="caixa">
+				<h2>Mais entrevistas</h2>
+				<div class="conteudo-secundario">
+					<ul>
+						<% for(var i = 1; i < noticias.length; i++){ %>
+							<li>
+								<a href="noticia?id=<%= noticias[i].id %>">
+									<img src="<%= noticias[i].cover_path %>">
+									<h3><%= noticias[i].title %></h3>
+									<p><%= noticias[i].resume %></p>
+								</a>
+							</li>
+						<% } %>
+					</ul>
+				</div>
+				
+			</div>
+		</div> <!-- fim coluna do meio -->
+	</div> <!-- fim principal -->
+
+	<div id="rodape" style="clear: both;">
+		<span>
+			&copy; Copyright 2000-2018 Notícias Cidade
+		</span>
+	</div>
+	
+</body>
+</html>

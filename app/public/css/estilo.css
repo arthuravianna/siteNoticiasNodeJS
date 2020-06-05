@@ -1,0 +1,258 @@
+body{
+	font-family: "Trebuchet MS", "Helvetica", sans-serif;
+	background: white url(../images/assets/fundo.png) repeat-x;
+	min-width: 750px;
+	margin: 0px;
+	padding: 0px;
+}
+
+h2{
+	font-size: 1em;
+	margin: 0px 0px 5px 0px;
+	padding: 5px;
+	color: white;
+	background: #294c71;
+}
+
+p{
+	margin: 0px;
+}
+
+h3{
+	font-size: 0.8em;
+	text-transform: uppercase;
+	padding: 2px;
+	color: white;
+	background: #b10333;
+	display: inline;
+}
+
+#container{
+	margin: auto;
+	padding-top: 20px;
+	background: url(../images/assets/detalhe-topo.png) no-repeat right top;
+	height: 179px;
+	width: 60%;
+	min-width: 750px;
+}
+
+#container ul{
+	margin-top: 30px;
+	padding: 0px;
+	list-style: none;
+	background: #b10333;
+	float: left;
+}
+
+#container ul li{
+	float: left;
+}
+
+#container ul a{
+	font-size: 0.9em;
+	display: block;
+	padding: 1em 1.2em;
+	text-decoration: none;
+	color: #fff;
+	background: url(../images/assets/divisor.png) no-repeat left center;
+}
+
+#container ul a:hover{
+	color: #69001d;
+}
+
+#home #container .home a,
+#brasil #container .brasil a,
+#internacional #container .internacional a,
+#politica #container .politica a,
+#economia #container .economia a,
+#saude #container .saude a,
+#entrevistas #container .entrevistas a{
+	background: #de003e;
+}
+
+#principal{
+	margin: 20px auto;
+	padding-top: 20px;
+	width: 60%;
+}
+
+/*######### Início Coluna da Esquerda #########*/
+
+#coluna-esq{
+	float: left;
+	width: 25%;
+}
+
+.caixa{
+	padding: 5px;
+	margin-bottom: 10px;
+	background: url(../images/assets/fundo-caixa.png);
+}
+
+.conteudo-esq{
+	background: white;
+}
+
+.conteudo-esq ul{
+	list-style: none;
+	padding: 0px 5px;
+	margin: 0px;
+}
+
+.conteudo-esq ul li{
+	padding: 10px 0px;
+	border-bottom: 1px solid lightgrey;
+}
+
+.conteudo-esq ul a{
+	font-size: 0.9em;
+	text-decoration: none;
+	color: black;
+}
+
+.conteudo-esq ul a:hover{
+	background: #f9f9f9 url(../images/assets/marcador.png) no-repeat left center;
+	padding-left: 20px;
+	color: #a1a1a1;
+}
+
+.conteudo-esq input[type="text"]{
+	width: 80%;
+	padding: 5px;
+	border-radius: 0px;
+}
+
+.conteudo-esq input[type="submit"]{
+	background: #b10333;
+	color: white;
+	border-color: #69001d;
+	margin: 5px 0px;
+	padding: 5px;
+}
+
+/*######### Fim Coluna da Esquerda #########*/
+
+/*######### Início Coluna Principal #########*/
+
+.coluna-principal{
+	margin-left: 2%;
+	margin-bottom: 2%;
+	float: left;
+	width: 35%;
+}
+
+.conteudo-principal{
+	background: white;
+	padding: 1%;
+}
+
+.conteudo-principal a{
+	color: #b10333;
+}
+
+.conteudo-principal a:link, a:visited {
+	color: #b10333;
+}
+
+.conteudo-principal a:hover{
+	color: red;
+}
+
+.conteudo-principal img{
+	border: 2px solid lightgrey;
+	margin: 0px;
+	width: 98%;
+}
+
+.conteudo-principal video{
+	border: 2px solid lightgrey;
+	margin: 0px;
+	width: 98%;
+}
+
+.resumo-noticia{
+	height: 90px;
+}
+
+#brasil .coluna-principal,
+#internacional .coluna-principal,
+#politica .coluna-principal,
+#economia .coluna-principal,
+#saude .coluna-principal,
+#entrevistas .coluna-principal{
+	width: 70%;
+}
+#noticia .coluna-principal,
+#entrevista .coluna-principal{
+	width: 100%;
+	margin-left: 0px;
+}
+#noticia p,
+#entrevista p{
+	margin: 1em 0;
+}
+
+/*######### Fim Coluna Principal #########*/
+
+/*######### Início Conteudo Secundário #########*/
+
+.conteudo-secundario{
+	background: white;
+	padding: 1%;
+}
+
+.conteudo-secundario ul{
+	list-style: none;
+	margin: 0px;
+	padding: 2%;
+}
+
+.conteudo-secundario ul li{
+	border-bottom: 1px solid lightgrey;
+	padding: 1%;
+	height: 120px;
+}
+
+#brasil .conteudo-secundario ul li,
+#internacional .conteudo-secundario ul li{
+	height: 100px;
+}
+
+.conteudo-secundario img{
+	margin: 5px 5px 0px 0px;
+	height: 80px;
+	float: left;
+}
+
+.conteudo-secundario h3{
+	color: #3e7ab9;
+	padding: 0px;
+	font-size: 0.8em;
+	background: none;
+}
+
+.conteudo-secundario p{
+	font-size: 0.7em;
+}
+
+.conteudo-secundario a{
+	text-decoration: none;
+	color: #b10333;
+}
+
+.conteudo-secundario li:hover {
+	background: #eee;
+}
+
+/*######### Fim Conteudo Secundário #########*/
+
+#rodape{
+	background: #294c71;
+	padding: 1.5% 0px;
+}
+
+#rodape span{
+	margin-left: 20%;
+	color: white;
+}

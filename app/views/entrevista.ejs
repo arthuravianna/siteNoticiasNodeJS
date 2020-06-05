@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="pt-br">
+	<title>Notícias Cidade - Entrevista <%= noticias[0].title %></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/estilo.css">
+</head>
+<body id="entrevista">
+	<div id="container">
+		<img src="images/assets/logo.png">
+		<ul>
+			<li class="home"> <a href="/">Home</a> </li>
+			<li class="brasil"> <a href="/brasil">Brasil</a> </li>
+			<li class="internacional"> <a href="/internacional">Internacional</a></li>
+			<% const ctgs = ["politica", "economia", "saude"]; %>
+			<li class="politica">
+				<a href="/politica?ctg=<%= ctgs[0]%>">Política</a></li>
+			<li class="economia">
+				<a href="/economia?ctg=<%= ctgs[1]%>">Economia</a></li>
+			<li class="saude"> <a href="/saude?ctg=<%= ctgs[2]%>">Saúde</a> </li>
+			<li class="entrevistas"> <a href="/entrevistas">Entrevistas</a> </li>
+		</ul>
+		<div class="clear"></div>
+	</div>
+
+	<div id="principal"> <!-- início principal -->
+		
+
+		<div class="coluna-principal"> <!-- início coluna do meio -->
+			<div class="caixa">
+				<h2>Entrevista com <%= noticias[0].title %></h2>
+				<div class="conteudo-principal">
+					<h3>
+						Data: 
+							<%= noticias[0].interview_date.getDate()%>/
+							<%= noticias[0].interview_date.getMonth()%>/
+							<%= noticias[0].interview_date.getFullYear()%>
+					</h3>
+					<div>
+						<p><%= noticias[0].resume %></p>
+					</div>
+					<!--<img src="<%= noticias[0].cover_path %>">-->
+					<video controls="">
+  						<source src="<%= noticias[0].video_path %>" type="video/mp4">
+						Your browser does not support the video tag.
+					</video> 
+				</div>
+			</div>
+		</div> <!-- fim coluna do meio -->
+	</div>
+
+	<div id="rodape" style="clear: both;">
+		<span>
+			&copy; Copyright 2000-2018 Notícias Cidade
+		</span>
+	</div>
+	
+</body>
+</html>

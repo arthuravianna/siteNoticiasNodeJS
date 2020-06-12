@@ -13,10 +13,8 @@
 			<li class="brasil"> <a href="/brasil">Brasil</a> </li>
 			<li class="internacional"> <a href="/internacional">Internacional</a></li>
 			<% const ctgs = ["politica", "economia", "saude"]; %>
-			<li class="politica">
-				<a href="/politica?ctg=<%= ctgs[0]%>">Política</a></li>
-			<li class="economia">
-				<a href="/economia?ctg=<%= ctgs[1]%>">Economia</a></li>
+			<li class="politica"><a href="/politica?ctg=<%= ctgs[0]%>">Política</a></li>
+			<li class="economia"><a href="/economia?ctg=<%= ctgs[1]%>">Economia</a></li>
 			<li class="saude"> <a href="/saude?ctg=<%= ctgs[2]%>">Saúde</a> </li>
 			<li class="entrevistas"> <a href="/entrevistas">Entrevistas</a> </li>
 		</ul>
@@ -36,18 +34,34 @@
 					<br>
 					<h3>
 						Data: 
-							<%= noticias[0].notice_date.getDate()%>/
-							<%= noticias[0].notice_date.getMonth()%>/
-							<%= noticias[0].notice_date.getFullYear()%>
+							<%= noticias[0].news_date.getDate()%>/
+							<%= noticias[0].news_date.getMonth()%>/
+							<%= noticias[0].news_date.getFullYear()%>
 					</h3>
-					<img src="<%= noticias[noticias.length-1].cover_path %>">
-					<div>
-						<% const paragrafos = noticias[0].notice_text.split("\n") %>
-						<% for(var i = 0; i < paragrafos.length; i++){ %>
-							<p><%= paragrafos[i] %></p>
-						<% } %>
-					</div>
+					<img src="<%= noticias[0].cover_path %>">
+					<% const paragrafos = noticias[0].notice_text.split("\n") %>
+					<% for(var i = 0; i < paragrafos.length; i++){ %>
+						<p><%= paragrafos[i] %></p>
+					<% } %>
 					
+					<% if(noticias.length > 1) { %>
+						<center>
+							<figure>
+								<input type="hidden" id="image-id"
+								value="<%= noticias[1].id %>">
+								<img src="<%= noticias[1].img_path %>" alt="Images"
+								usemap="#images" id="image">
+								<map name="images">
+	  								<area shape="rect" coords="0,0,50,426" alt="Previus"
+	  								id="prev" onclick="prev_img()">
+	  								<area shape="rect" coords="590,0,640,426" alt="Next"
+	  								id="next" onclick="next_img()">
+								</map>
+								<figcaption id="img-description">
+									<%= noticias[1].img_description %></figcaption>
+							</figure>
+						</center>
+					<% } %>
 				</div>
 			</div>
 		</div> <!-- fim coluna do meio -->
@@ -58,6 +72,32 @@
 			&copy; Copyright 2000-2018 Notícias Cidade
 		</span>
 	</div>
+
+	<script type="text/javascript">
+		var k = 0;
+		var imgs_noticia = [];
+
+		<%for(var x = 1; x < noticias.length; x++){ %>
+			imgs_noticia.push({id: <%= noticias[x].id %>,
+				img_path: "<%= noticias[x].img_path %>",
+				img_description: "<%= noticias[x].img_description %>"});
+		<% } %>
+
+		function next_img(){
+			k = k +1;
+			document.getElementById("image-id").value = imgs_noticia[k].id;
+			document.getElementById("image").src = imgs_noticia[k].img_path;
+			document.getElementById("img-description").innerHTML = imgs_noticia[k].img_description;
+		}
+
+		function prev_img(){
+			k = k -1;
+			document.getElementById("image-id").value = imgs_noticia[k].id;
+			document.getElementById("image").src = imgs_noticia[k].img_path;
+			document.getElementById("img-description").innerHTML = imgs_noticia[k].img_description;
+		}
+		
+	</script>
 	
 </body>
 </html>

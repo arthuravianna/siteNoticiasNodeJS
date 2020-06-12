@@ -46,7 +46,7 @@
 					<p>
 						<%= noticias[0].resume %>
 					</p>
-					<a href="noticia?id=<%= noticias[0].id %>">Leia mais!</a>
+					<a href="entrevista?id=<%= noticias[0].id %>">Leia mais!</a>
 				</div>
 			</div>
 
@@ -56,7 +56,7 @@
 					<ul>
 						<% for(var i = 1; i < noticias.length; i++){ %>
 							<li>
-								<a href="noticia?id=<%= noticias[i].id %>">
+								<a href="entrevista?id=<%= noticias[i].id %>">
 									<img src="<%= noticias[i].cover_path %>">
 									<h3><%= noticias[i].title %></h3>
 									<p><%= noticias[i].resume %></p>

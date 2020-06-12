@@ -188,6 +188,31 @@ h3{
 	width: 100%;
 	margin-left: 0px;
 }
+
+#noticia figure{
+	position: relative;
+}
+
+#noticia figure img{
+	width: 99%;
+	border: 2px solid lightgrey;
+}
+
+#noticia figcaption{
+	position: relative;
+	bottom: 32px;
+	font-size: 0.8em;
+	padding: 5px;
+	background-color: lightgrey;
+	opacity: 0.6;
+	text-align: center;
+}
+
+#noticia #prev,
+#noticia #next{
+	cursor: pointer;
+}
+
 #noticia p,
 #entrevista p{
 	margin: 1em 0;

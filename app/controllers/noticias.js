@@ -2,8 +2,14 @@ module.exports.noticia = function(application, req, res){
 	var connection = application.config.dbConnection();
 	var noticesModels = new application.app.models.NoticiasModels(connection);
 
+	var noticia;
 	noticesModels.getNoticia(req.query.id, function(error, result){
-		res.render("noticia", {noticias: result});
+		noticia = result;
+	});
+	noticesModels.getNoticiaFotos(req.query.id, function(error, result){
+		noticia.push.apply(noticia, result);
+		console.log(noticia);
+		res.render("noticia", {noticias: noticia});
 	});
 }
 

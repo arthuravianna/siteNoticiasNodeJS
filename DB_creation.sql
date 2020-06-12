@@ -1,61 +1,61 @@
-create database site_Noticias;
+CREATE DATABASE site_Noticias;
 use site_Noticias;
 
 -- Tables
-create table Notices(
-	id int not null auto_increment,
-	title varchar(40) not null,
-	resume varchar(100) not null,
-	notice_text text not null,
-	cover_path varchar(50) not null,-- path to cover img
-	notice_date date not null,
-	autor varchar(30) not null,
-	national boolean not null,
+CREATE TABLE News(
+	id int NOT NULL auto_increment,
+	title varchar(40) NOT NULL,
+	cover_path varchar(50) NOT NULL,-- path to cover img
+	resume varchar(100) NOT NULL,
+	news_date date NOT NULL,
 
-	constraint Notices_PK primary key (id)
+	CONSTRAINT Notices_PK PRIMARY KEY (id)
 );
 
-create table Interviews(
-	id int not null auto_increment,
-	title varchar(40) not null,
-	resume varchar(100),
-	cover_path varchar(50),
+CREATE TABLE Notices(
+	id int NOT NULL,
+	notice_text text NOT NULL,
+	autor varchar(30) NOT NULL,
+	national boolean NOT NULL,
+	CONSTRAINT Notices_PK PRIMARY KEY (id),
+	CONSTRAINT Notices_News_FK FOREIGN KEY (id)
+	REFERENCES News(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE Interviews(
+	id int NOT NULL,
 	video_path varchar(50),
-	interview_date date not null,
 
-	constraint Interviews_PK primary key (id)
+	CONSTRAINT Interviews_PK PRIMARY KEY (id),
+	CONSTRAINT Interviews_News_FK FOREIGN KEY (id)
+	REFERENCES News(id) ON DELETE CASCADE ON UPDATE CASCADE
+
 );
 
-create table Categories(
-	ctg varchar(15) not null,
+CREATE TABLE Categories(
+	ctg varchar(15) NOT NULL,
 
-	constraint Categories_PK primary key (ctg)
+	CONSTRAINT Categories_PK PRIMARY KEY (ctg)
 );
 
-create table Notices_categories(
-	notice_id int not null,
-	ctg varchar(15) not null,
+CREATE TABLE Notices_categories(
+	id int NOT NULL,
+	ctg varchar(15) NOT NULL,
 
-	constraint Notices_categories_PK primary key (notice_id, ctg),
-	constraint Notices_categories_notices_FK foreign key (notice_id)
-	references Notices(id)
-	on delete cascade
-	on update cascade,
-	constraint Notices_categories_categories_FK foreign key (ctg)
-	references Categories(ctg)
-	on delete cascade
-	on update cascade
+	CONSTRAINT Notices_categories_PK PRIMARY KEY (id, ctg),
+	CONSTRAINT Notices_categories_notices_FK FOREIGN KEY (id)
+	REFERENCES Notices(id) ON DELETE CASCADE ON UPDATE CASCADE,
+	CONSTRAINT Notices_categories_categories_FK FOREIGN KEY (ctg)
+	REFERENCES Categories(ctg) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-create table Images(
-	id int not null auto_increment,
-	notice_id int not null,
-	img_path varchar(50) not null,
-	img_description varchar(100) not null,
+CREATE TABLE Images(
+	id int NOT NULL auto_increment,
+	notice_id int NOT NULL,
+	img_path varchar(50) NOT NULL,
+	img_description varchar(100) NOT NULL,
 
-	constraint Images_PK primary key (id),
-	constraint Notices_imgs_FK foreign key (notice_id)
-	references Notices(id)
-	on delete cascade
-	on update cascade
+	CONSTRAINT Images_PK PRIMARY KEY (id),
+	CONSTRAINT Images_Notices_FK FOREIGN KEY (notice_id)
+	REFERENCES Notices(id) ON DELETE CASCADE ON UPDATE CASCADE
 );
